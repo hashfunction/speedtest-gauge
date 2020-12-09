@@ -40,6 +40,8 @@ class Gauge:
     uploadGaugeColorA = (107, 50, 149)
     uploadGaugeColorB = (233, 123, 206)
 
+    latencyGaugeColorA = (235, 221, 80)
+    latencyGaugeColorB = (31, 164, 233)
 
     def __init__(self, pixels):
         GPIO.setmode(GPIO.BCM)
@@ -55,17 +57,34 @@ class Gauge:
         self.currentAngle = 0
         self.stepCount = len(self.seq)
 
+        self.__ShowColorWheel()
+
+    def __ShowColorWheel(self):
+        colorA = self.latencyGaugeColorA
+        colorB = self.latencyGaugeColorB
+        for i in range (0, self.numPixels):
+            self.pixels[i] = (self.__GetColorFromRange(i, 0, self.numPixels, colorA[0], colorB[0]), 
+                              self.__GetColorFromRange(i, 0, self.numPixels, colorA[1], colorB[1]), 
+                              self.__GetColorFromRange(i, 0, self.numPixels, colorA[2], colorB[2]))
+            self.pixels.show()
+            time.sleep(0.04)
+
+        for i in range (0, self.numPixels):
+            self.pixels[i] = (0,0,0)
+            self.pixels.show()
+            time.sleep(0.04)
+
     def __GetColorValue(self, index, currentPixel, stage):
         colorA = self.downloadGaugeColorA if stage is Stage.Download else self.uploadGaugeColorA
         colorB = self.downloadGaugeColorB if stage is Stage.Upload else self.uploadGaugeColorB
-        return int(self.__GetColorFromRange(currentPixel, 0, self.numPixels, colorA[index], colorB[index]))
+        return self.__GetColorFromRange(currentPixel, 0, self.numPixels, colorA[index], colorB[index])
 
     def __GetColorFromRange(self, value, leftMin, leftMax, rightMin, rightMax):
         leftSpan = leftMax - leftMin
         rightSpan = rightMax - rightMin
 
         valueScaled = float(value - leftMin) / float(leftSpan)
-        return rightMin + (valueScaled * rightSpan)
+        return int(rightMin + (valueScaled * rightSpan))
 
     def MoveToMbps(self, stage, speed):
         newAngle = self.__calculateAngleFromMbps(speed)
