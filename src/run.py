@@ -11,8 +11,6 @@ import neopixel
 import board
 
 def runTest(neopixels):
-    GPIO.cleanup()
-
     queue = Queue() 
     speedtest = Speedtest(queue)
     speedtest.start()
@@ -20,7 +18,7 @@ def runTest(neopixels):
     gauge = Gauge(neopixels)
 
     # read speed from test and update gauge
-    (stage, _) = queue.get(True, 5)
+    (stage, _) = queue.get(True, 10)
     while not speedtest.isDone:
         try:
             (currentStage, speed) = queue.get(True, 4)
@@ -42,6 +40,7 @@ def runTest(neopixels):
 
 
 def main(argv):
+    GPIO.cleanup()
 
     # Single neopixel library instance
     maxPixels = 45

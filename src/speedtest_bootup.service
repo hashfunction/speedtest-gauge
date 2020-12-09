@@ -1,0 +1,12 @@
+ [Unit]
+ Description=Speedtest Gauge Startup Service
+ After=multi-user.target
+
+ [Service]
+ Type=simple
+ ExecStart=/usr/bin/python3 /home/hashfunction/workspace/speedtest-gauge/src/run.py
+ User=root
+ Group=root
+
+ [Install]
+ WantedBy=multi-user.target

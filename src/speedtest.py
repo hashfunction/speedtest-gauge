@@ -16,7 +16,7 @@ class Speedtest(Thread):
     def run(self):
         stage = Stage.Download
         
-        self.process = subprocess.Popen(['unbuffer', "speedtest"], bufsize=0, shell=False, stdout=subprocess.PIPE, universal_newlines=True)
+        self.process = subprocess.Popen(['/usr/bin/unbuffer', "/usr/bin/speedtest"], bufsize=0, shell=False, stdout=subprocess.PIPE, universal_newlines=True)
 
         while True:
             output = ""

@@ -21,7 +21,7 @@ class Gauge:
 
     # motor rated at 4096 steps in 360 degrees
     stepAngle = 360 / float(4096)
-    waitTime = 2/float(1000)
+    waitTime = 1/float(1000)
 
     # half step sequence for stepper
     seq = [[1,0,0,1],
@@ -67,12 +67,12 @@ class Gauge:
                               self.__GetColorFromRange(i, 0, self.numPixels, colorA[1], colorB[1]), 
                               self.__GetColorFromRange(i, 0, self.numPixels, colorA[2], colorB[2]))
             self.pixels.show()
-            time.sleep(0.04)
+            time.sleep(0.024)
 
         for i in range (0, self.numPixels):
             self.pixels[i] = (0,0,0)
             self.pixels.show()
-            time.sleep(0.04)
+            time.sleep(0.024)
 
     def __GetColorValue(self, index, currentPixel, stage):
         colorA = self.downloadGaugeColorA if stage is Stage.Download else self.uploadGaugeColorA
