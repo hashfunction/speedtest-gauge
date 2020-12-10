@@ -11,7 +11,7 @@ This project requires the following components to work:
 * A soldering iron. A basic one should do fine. 
 * [Jumper wires](https://smile.amazon.com/REXQualis-120pcs-Breadboard-Arduino-Raspberry/dp/B072L1XMJR) to connect the various components together.
 * A stepper motor. This project used [this model](https://smile.amazon.com/ELEGOO-28BYJ-48-ULN2003-Stepper-Arduino/dp/B01CP18J4A/) but feel free to upgrade to a better one. The limitation of this one is that the max speed is slow and so the gauge needle is not very quick.
-* Programmable LED lights. This project uses [three neopixel ring lights](https://www.adafruit.com/product/1768). Note that you will need three of these to form the full gauge.
+* Programmable LED lights. This project uses [three neopixel ring lights](https://www.adafruit.com/product/1768). Note that you will need three of these to form the full gauge. You can find cheaper versions of this ring elsewhere.
 * Physical buttons. A good candidate for buttons are these [mini push buttons](https://smile.amazon.com/gp/product/B0752RMB7Q/). 
 * A [Raspberry Pi](https://www.adafruit.com/category/105). This drives the LED lights as well as the motor and runs the actual test. 
 * A good [power source](https://smile.amazon.com/Raspberry-Power-Supply-Off-Switch/dp/B083JCL6H2) for the Raspberry Pi. 
@@ -34,7 +34,7 @@ This project requires the following components to work:
     > IN3 to GPIO23
     > IN4 to GPIO24
 
-* Step 5: Solder the neopixel rings per this guide on Adafruit. Note that we will be using three segments only. After that, connect the +5V and GND on the neopixel lights to the +5V and GND on the Raspberry Pi. Then connect the data line to GPIO18 on the Raspberry Pi. 
+* Step 5: Solder the neopixel rings per [this guide](https://learn.adafruit.com/neopixel-60-ring-clock/circuit-diagram) on Adafruit. Note that we will be using three segments only. After that, connect the +5V and GND on the neopixel lights to the +5V and GND on the Raspberry Pi. Then connect the data line to GPIO18 on the Raspberry Pi. 
 
 * Step 6: Inset the neopixel ring into the gauge indent. You can use sticky tape or soft glue to hold it in place. 
 
