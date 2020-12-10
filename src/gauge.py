@@ -21,7 +21,7 @@ class Gauge:
 
     # motor rated at 4096 steps in 360 degrees
     stepAngle = 360 / float(4096)
-    waitTime = 1/float(1000)
+    waitTime = 2/float(1000)
 
     # half step sequence for stepper
     seq = [[1,0,0,1],
