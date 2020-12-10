@@ -18,8 +18,8 @@ def runTest(neopixels):
     gauge = Gauge(neopixels)
 
     # read speed from test and update gauge
-    (stage, _) = queue.get(True, 10)
-    while not speedtest.isDone:
+    (stage, speed) = queue.get(True, 10)
+    while speed > 0 or not queue.empty():
         try:
             (currentStage, speed) = queue.get(True, 4)
 
