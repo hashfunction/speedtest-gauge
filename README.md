@@ -2,6 +2,7 @@
 
 Sure you love taking a Speedtest, but have you ever seen the results manifest in a 3D statue that lives on your desk? Now’s your chance. This repo contains everything you need to construct and program an ethernet-enabled physical Speedtest Gauge. All you’ll need to build it is access to a 3D printer, some affordable and easy-to-find parts, and a basic working knowledge of both electronics and command line interface (CLI) tools. Then you can proudly display your Speedtest gauge on your desk or gift it to a friend who also loves to nerd out over networks. Either way, you’ll have the most fun setup for measuring network throughput in town.
 
+![Speedtest Gauge](gauge.jpg?raw=true "Speedtest Gauge")
 
 ## Components you’ll need
 The total cost of all the components below is around $65, and the project will take about two or three hours to complete, not counting the time to 3D print the enclosure. 
