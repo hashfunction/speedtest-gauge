@@ -44,7 +44,7 @@ def main(argv):
 
     # Single neopixel library instance
     maxPixels = 45
-    neopixels = neopixel.NeoPixel(board.D18, maxPixels, brightness=0.5, auto_write=True, pixel_order=neopixel.RGB)
+    neopixels = neopixel.NeoPixel(board.D18, maxPixels, brightness=0.5, auto_write=False)
 
     button = Button()
 
