@@ -76,7 +76,7 @@ class Gauge:
 
     def __GetColorValue(self, index, currentPixel, stage):
         colorA = self.downloadGaugeColorA if stage is Stage.Download else self.uploadGaugeColorA
-        colorB = self.downloadGaugeColorB if stage is Stage.Upload else self.uploadGaugeColorB
+        colorB = self.downloadGaugeColorB if stage is Stage.Download else self.uploadGaugeColorB
         return self.__GetColorFromRange(currentPixel, 0, self.numPixels, colorA[index], colorB[index])
 
     def __GetColorFromRange(self, value, leftMin, leftMax, rightMin, rightMax):
